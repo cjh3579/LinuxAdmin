@@ -1,0 +1,41 @@
+#
+# ansible
+#
+
+alias vi='/usr/bin/vim'
+alias chrome='google-chrome'
+alias ans='ansible'
+# alias anp='ansible-playbook'
+alias anp='ansible-navigator run -m stdout'
+alias and='ansible-doc'
+alias anpr='ansible-playbook -C'
+# alias anpchk='ansible-playbook --syntax-check'
+alias anpchk='ansible-navigator run -m stdout --check'
+alias anx='ansible-galaxy'
+alias anv='ansible-vault'
+alias ansfs='ansible localhost -m setup | grep "ansible_*"'
+
+#
+# kubenetes
+#
+
+#
+# Kubernetes Alias
+#
+# kubectl and kubeadm
+source <(kubectl completion bash)
+source <(kubeadm completion bash)
+alias k=kubectl
+complete -o default -F __start_kubectl k
+  
+# kubectx and kubens
+export PATH=~/.kubectx:$PATH
+  
+# krew - plugin manager
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+alias kubens='kubectl ns'
+alias kubectx='kubectl ctx'
+ 
+# API search
+alias grep='grep --color=auto -i'
+alias findapi='kubectl api-resources | head -1 ; kubectl api-resources | gre    p' 
